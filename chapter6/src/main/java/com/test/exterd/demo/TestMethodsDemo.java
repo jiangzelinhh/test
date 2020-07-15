@@ -13,7 +13,6 @@ public class TestMethodsDemo {
       if(z!=s){
           Reporter.log("两个数值不相等");
           throw new RuntimeException("运行时异常");
-
       }
     }
 
