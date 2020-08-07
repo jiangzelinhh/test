@@ -1,0 +1,31 @@
+[
+  {
+    "description": "这是我们的第一个mock例子",
+    "request": {
+      "uri": "/demo"
+    },
+    "response": {
+      "text": "第一个moco框架demo"
+    }
+  },
+
+  {
+    "description":"模拟一个带参数的get请求",
+      "request":{
+        "uri":"/getwithparam",
+        "method":"get",
+        "queries": {
+          "name": "lisi",
+          "age": "18"
+        }
+      },
+      "response":{
+        "text":"hhhhh!!!"
+      }
+
+    }
+
+
+
+
+]
