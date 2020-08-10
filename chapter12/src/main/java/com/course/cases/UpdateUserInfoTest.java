@@ -28,7 +28,7 @@ public class UpdateUserInfoTest {
 
 
         //下边为写完接口的代码
-        int result = getResult(updateUserInfoCase);
+        String result = getResult(updateUserInfoCase);
         /**
          * 下边这两行跟着测试的课讲
          */
@@ -47,13 +47,13 @@ public class UpdateUserInfoTest {
     @Test(dependsOnGroups = "loginTrue",description = "删除用户")
     public void deleteUser() throws IOException, InterruptedException {
         SqlSession session = DatabaseUtil.getSqlSession();
-        UpdateUserInfoCase updateUserInfoCase = session.selectOne("updateUserInfoCase",2);
+        UpdateUserInfoCase updateUserInfoCase = session.selectOne("updateUserInfoCase",1);
         System.out.println(updateUserInfoCase.toString());
         System.out.println(TestConfig.updateUserInfoUrl);
 
 
         //下边为写完接口的代码
-        int result = getResult(updateUserInfoCase);
+        String result = getResult(updateUserInfoCase);
 
         /**
          * 下边这两行跟着测试的课讲
@@ -68,7 +68,7 @@ public class UpdateUserInfoTest {
     }
 
 
-    private int getResult(UpdateUserInfoCase updateUserInfoCase) throws IOException {
+    private String getResult(UpdateUserInfoCase updateUserInfoCase) throws IOException {
         HttpPost post = new HttpPost(TestConfig.updateUserInfoUrl);
         JSONObject param = new JSONObject();
         param.put("id",updateUserInfoCase.getUserId());
@@ -91,7 +91,8 @@ public class UpdateUserInfoTest {
         //获取响应结果
         result = EntityUtils.toString(response.getEntity(),"utf-8");
         System.out.println(result);
-        return Integer.parseInt(result);
+
+        return result;
 
     }
 

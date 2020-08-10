@@ -135,7 +135,7 @@
     }
   },
   {
-    "description":"增加用户接口",
+    "description":"更新用户接口",
     "request":{
       "uri":"/updateUserInfo",
       "method":"post",
