@@ -11,6 +11,7 @@
 
     <artifactId>chapter12</artifactId>
 
+
     <dependencies>
         <dependency>
             <groupId>commons-logging</groupId>
