@@ -85,7 +85,7 @@
                 <version>2.18.1</version>
                 <configuration>
                     <suiteXmlFiles>
-                        src/main/resources/testng.xml
+                        .src/main/resources/testng.xml
                     </suiteXmlFiles>
                 </configuration>
             </plugin>
