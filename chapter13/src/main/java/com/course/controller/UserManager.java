@@ -68,7 +68,7 @@ public class UserManager {
     }
 
     @ApiOperation(value = "更新/删除用户",httpMethod = "POST")
-    @RequestMapping(value = "/updateUser",method = RequestMethod.POST)
+    @RequestMapping(value = "/updateUserInfo",method = RequestMethod.POST)
     public int updateUser(HttpServletRequest request,@RequestBody User user){
         boolean x = verifCookies(request);
         int i=0;

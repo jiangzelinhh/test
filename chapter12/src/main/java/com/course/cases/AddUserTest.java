@@ -2,7 +2,6 @@ package com.course.cases;
 
 import com.course.config.TestConfig;
 import com.course.model.AddUserCase;
-import com.course.model.User;
 import com.course.utils.DatabaseUtil;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpPost;
@@ -19,10 +18,13 @@ public class AddUserTest {
 
     @Test(dependsOnGroups = "loginTrue",description = "添加用户接口接口")
     public void addUser() throws IOException, InterruptedException {
+
         SqlSession session = DatabaseUtil.getSqlSession();
         AddUserCase addUserCase = session.selectOne("addUserCase",1);
         System.out.println(addUserCase.toString());
         System.out.println(TestConfig.addUserUrl);
+
+
 
         //下边的代码为写完接口的测试代码
         String result = getResult(addUserCase);
@@ -32,16 +34,19 @@ public class AddUserTest {
          */
         //查询用户看是否添加成功
         Thread.sleep(2000);
-        User user = session.selectOne("addUser",addUserCase);
-
+        AddUserCase addUserCase1 = session.selectOne("addUserCase",addUserCase);
+        System.out.println(addUserCase.toString());
 
 
         //处理结果，就是判断返回结果是否符合预期
         Assert.assertEquals(addUserCase.getExpected(),result);
+
+
     }
 
-    private String getResult(AddUserCase addUserCase) throws IOException {
 
+    private String getResult(AddUserCase addUserCase) throws IOException {
+        //下边的代码为写完接口的测试代码
         HttpPost post = new HttpPost(TestConfig.addUserUrl);
         JSONObject param = new JSONObject();
         param.put("userName",addUserCase.getUserName());
@@ -50,8 +55,9 @@ public class AddUserTest {
         param.put("age",addUserCase.getAge());
         param.put("permission",addUserCase.getPermission());
         param.put("isDelete",addUserCase.getIsDelete());
-        // 设置请求头
-        post.setHeader("content-type","utf-8");
+
+        //设置请求头信息 设置header
+        post.setHeader("content-type","application/json");
         //将参数信息添加到方法中
         StringEntity entity = new StringEntity(param.toString(),"utf-8");
         post.setEntity(entity);
@@ -65,8 +71,5 @@ public class AddUserTest {
         result = EntityUtils.toString(response.getEntity(),"utf-8");
         System.out.println(result);
         return result;
-
-
-
     }
 }

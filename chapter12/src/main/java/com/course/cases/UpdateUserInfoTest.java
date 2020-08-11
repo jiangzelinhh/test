@@ -28,18 +28,17 @@ public class UpdateUserInfoTest {
 
 
         //下边为写完接口的代码
-        String result = getResult(updateUserInfoCase);
+        int result = getResult(updateUserInfoCase);
+
         /**
          * 下边这两行跟着测试的课讲
          */
-        //获取更新后的结果
         Thread.sleep(2000);
         User user = session.selectOne(updateUserInfoCase.getExpected(),updateUserInfoCase);
-        System.out.println(user.toString());
+        System.out.println( user.toString());
 
 
-
-        Assert.assertNotNull(user);
+        Assert.assertNotNull( user);
         Assert.assertNotNull(result);
 
     }
@@ -53,10 +52,10 @@ public class UpdateUserInfoTest {
 
 
         //下边为写完接口的代码
-        String result = getResult(updateUserInfoCase);
+        int result = getResult(updateUserInfoCase);
 
         /**
-         * 下边这两行跟着测试的课讲
+         * 下边这两行跟着测试的课讲int
          */
         Thread.sleep(2000);
         User user = session.selectOne(updateUserInfoCase.getExpected(),updateUserInfoCase);
@@ -68,7 +67,7 @@ public class UpdateUserInfoTest {
     }
 
 
-    private String getResult(UpdateUserInfoCase updateUserInfoCase) throws IOException {
+    private int getResult(UpdateUserInfoCase updateUserInfoCase) throws IOException {
         HttpPost post = new HttpPost(TestConfig.updateUserInfoUrl);
         JSONObject param = new JSONObject();
         param.put("id",updateUserInfoCase.getUserId());
@@ -91,8 +90,7 @@ public class UpdateUserInfoTest {
         //获取响应结果
         result = EntityUtils.toString(response.getEntity(),"utf-8");
         System.out.println(result);
-
-        return result;
+        return Integer.parseInt(result);
 
     }
 
