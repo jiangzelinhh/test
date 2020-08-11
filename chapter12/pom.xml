@@ -81,16 +81,14 @@
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.18.1</version>
                 <configuration>
-                    <source>1.6</source>
-                    <target>1.6</target>
+                    <suiteXmlFiles>
+                        src/main/resources/testng.xml
+                    </suiteXmlFiles>
                 </configuration>
             </plugin>
-
-
-            <!--testng打jar包运行的插件引入-->
-
         </plugins>
     </build>
 
