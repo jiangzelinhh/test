@@ -89,6 +89,16 @@
                     </suiteXmlFiles>
                 </configuration>
             </plugin>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <fork>true</fork>
+                    <executable>
+                        D:\JDK\jdk1.8\bin\javac.exe
+                    </executable>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
