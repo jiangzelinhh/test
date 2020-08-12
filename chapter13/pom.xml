@@ -11,11 +11,13 @@
 
     <artifactId>chapter13</artifactId>
 
+
+
     <build>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
+                <artifactId>maven-plugin</artifactId>
                 <configuration>
                     <mainClass>com.course.Application</mainClass>
                 </configuration>
