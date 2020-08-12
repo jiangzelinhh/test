@@ -88,7 +88,7 @@
                     <suiteXmlFiles>
                         src/main/resources/testng.xml
                     </suiteXmlFiles>
-                    <skipTests>true</skipTests>
+
                 </configuration>
             </plugin>
 
